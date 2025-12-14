@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: black;
+        }
+
+        #container {
+            width: 1000px;
+            height: 550px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(bgImg.jpg);
+            margin: 20px auto;
+        }
+
+        #calculator {
+            width: 320px;
+            height: 520px;
+            background-color: #eaedef;
+            margin: auto;
+            top: 20px;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+                6px 20px rgba(0, 0, 0, 0.19);
+        }
+
+        #result {
+            height: 120px;
+        }
+
+        #keyboard {
+            height: 400px;
+        }
+
+        .operator,
+        .number,
+        .empty {
+            width: 50px;
+            height: 50px;
+            margin: 15px;
+            float: left;
+            border-radius: 50%;
+            border-width: 0;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .number,
+        .empty {
+            background-color: #eaedef;
+        }
+
+        .number,
+        .operator {
+            cursor: pointer;
+        }
+
+        .operator:active,
+        .number:active {
+            font-size: 13px;
+        }
+
+        .operator:focus,
+        .number:focus,
+        .empty:focus {
+            outline: 0;
+        }
+
+        #result {
+            height: 120px;
+        }
+
+        #history {
+            text-align: right;
+            height: 20px;
+            margin: 0 20px;
+            padding-top: 20px;
+            font-size: 15px;
+            color: #919191;
+        }
+
+        #output {
+            text-align: right;
+            height: 60px;
+            margin: 10px 20px;
+            font-size: 30px;
+        }
+
+        button:nth-child(4) {
+            font-size: 20px;
+            background-color: #20b2aa;
+        }
+
+        button:nth-child(8) {
+            font-size: 20px;
+            background-color: #ffa500;
+        }
+
+        button:nth-child(12) {
+            font-size: 20px;
+            background-color: #f08080;
+        }
+         #display{
+      width:100%;
+      height:64px;
+      font-size:28px;
+      padding:10px 12px;
+      box-sizing:border-box;
+      border:none;
+      border-radius:10px;
+      text-align:right;
+      background:white;
+      outline:none;
+      margin-bottom:14px;
+    }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="container">
+        <div id="calculator">
+            <div id="result">
+                <div id="history">
+                    <p id="history-value"></p>
+                </div>
+                <div id="output">
+                    <p id="output-value"></p>
+                    <input id="display" type="text" value="" placeholder="0" readonly />
+                </div>
+            </div>
+
+            <div id="keyboard">
+                <button class="operator" id="clear" onclick="clearAll()">C</button>
+                <button class="operator" id="backspace" onclick="clearAll()">CE</button>
+                <button class="operator" id="%" onclick="appendValue('%')">%</button>
+                <button class="operator" id="/" onclick="appendValue('/')">&#247;</button>
+
+                <button class="number" id="7" value="7" onclick="appendValue('7')">7</button>
+                <button class="number" id="8" onclick="appendValue('8')">8</button>
+                <button class="number" id="9" onclick="appendValue('9')">9</button>
+                <button class="operator" id="*" onclick="appendValue('*')">&times;</button>
+
+                <button class="number" id="4" onclick="appendValue('4')">4</button>
+                <button class="number" id="5" onclick="appendValue('5')">5</button>
+                <button class="number" id="6" onclick="appendValue('6')">6</button>
+                <button class="operator" id="-" onclick="appendValue('-')" >-</button>
+
+                <button class="number" id="1" onclick="appendValue('1')">1</button>
+                <button class="number" id="2" onclick="appendValue('2')">2</button>
+                <button class="number" id="3" onclick="appendValue('3')">3</button>
+                <button class="operator" id="+" onclick="appendValue('+')">+</button>
+
+                <button class="number" id="0" onclick="appendValue('0')">0</button>
+                <button class="empty" id="empty"></button>
+                <button class="empty" id="empty"></button>
+                <button class="operator" id="=" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
